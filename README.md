@@ -9,7 +9,7 @@ N/A
 
 ## Usage
 
-You can try out the Javascript coding quiz if you click this link:
+You can try out the Weather Dashboard if you click this link:
 
 https://sara-badini-confalonieri.github.io/Weather-Dashboard/
 
