@@ -62,3 +62,39 @@ function addToLocalStorage(city) {
     searchHistory.push(city);
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 }
+
+
+function loadSearchHistory() {
+    const historyContainer = $('#history');
+    let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+  
+    historyContainer.html(searchHistory.map(city => `<li class="list-group-item">${city}</li>`).join(''));
+  }
+  
+  function handleSearchHistoryClick(event) {
+    const city = $(event.target).text();
+    fetchWeatherData(city).then(function(data) {
+      if (data) {
+        renderWeatherData(data);
+      }
+    });
+  }
+  
+  $('#search-form').submit(function(event) {
+    event.preventDefault();
+    const city = $('#search-input').val().trim();
+  
+    fetchWeatherData(city).then(function(data) {
+      if (data) {
+        renderWeatherData(data);
+
+        addToLocalStorage(city);
+  
+        loadSearchHistory();
+      }
+    });
+  });
+  
+  $('#history').on('click', 'li', handleSearchHistoryClick);
+  
+  $(document).ready(loadSearchHistory);
