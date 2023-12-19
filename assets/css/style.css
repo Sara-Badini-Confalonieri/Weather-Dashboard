@@ -1,0 +1,11 @@
+h1 {
+    background: linear-gradient(109.6deg, rgb(80, 154, 175) 11.2%, rgb(125, 216, 199) 59.3%, rgb(245, 255, 195) 92.7%);
+    padding: 20px;
+    margin: 0px;
+}
+
+.col-md-2 {
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(125, 216, 199);
+}
